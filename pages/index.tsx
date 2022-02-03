@@ -4,6 +4,7 @@ import QRCode from 'qrcode.react'
 
 const Home = () => {
   const [modal_state, setModalState] = React.useState('none');
+  // const [qr_data, setQRData] = React.useState({});
 
   const vCardForm = useFormik({
     initialValues: {
@@ -23,7 +24,8 @@ const Home = () => {
       website: '',
     },
     onSubmit: values => {
-      //alert(JSON.stringify(values, null, 2));
+      // alert(JSON.stringify(values, null, 2));
+      // setQRData(JSON.stringify(values, null, 2));
       setModalState('flex');
     },
   });
@@ -34,7 +36,7 @@ const Home = () => {
         <div className='qr-modal'>
           <h2>Your QR code is generated</h2>
           <div className='qr-code'>
-            <QRCode value='this is a test and it works!!' />
+            <QRCode value='this is a QR test and it works!!!!' size={165} />
           </div>
           <div className='button-container'>
             <button onClick={() => setModalState('none')}>Close</button>
